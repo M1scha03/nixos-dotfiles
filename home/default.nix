@@ -20,7 +20,16 @@ in
   home.homeDirectory = "/home/mischa";
   home.stateVersion = "26.05";
 
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        user = "M1scha03";
+        email = "295005705+M1scha03@users.noreply.github.com";
+      };
+      init.defaultBranch = "main";
+    };
+  };
 
   xdg.configFile = builtins.mapAttrs (name: subpath: {
     source = create_symlink "${dotfiles}/${subpath}";
