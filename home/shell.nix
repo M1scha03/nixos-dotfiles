@@ -10,6 +10,7 @@
     zoxide
     starship
     bat
+    yazi
     fastfetch
   ];
 

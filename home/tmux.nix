@@ -95,15 +95,15 @@
 
       # Theme
       set -g status-style "bg=default,fg=default"
-      set -g status-left "#[fg=black,bg=green,bold] #S #[bg=default] "
-      set -g status-right "#[fg=green]#{?pane_in_mode,COPY ,}#{?client_prefix,PREFIX ,}#{?window_zoomed_flag,ZOOM ,}#[fg=brightblack]#h "
+      set -g status-left "#[fg=black,bg=blue,bold] #S #[bg=default] "
+      set -g status-right "#[fg=blue]#{?pane_in_mode,COPY ,}#{?client_prefix,PREFIX ,}#{?window_zoomed_flag,ZOOM ,}#[fg=brightblack]#h "
       set -g window-status-format "#[fg=brightblack] #I:#W "
-      set -g window-status-current-format "#[fg=green,bold] #I:#W "
+      set -g window-status-current-format "#[fg=blue,bold] #I:#W "
       set -g pane-border-style "fg=brightblack"
-      set -g pane-active-border-style "fg=green"
-      set -g message-style "bg=default,fg=green"
-      set -g message-command-style "bg=default,fg=green"
-      set -g mode-style "bg=green,fg=black"
+      set -g pane-active-border-style "fg=blue"
+      set -g message-style "bg=default,fg=blue"
+      set -g message-command-style "bg=default,fg=blue"
+      set -g mode-style "bg=blue,fg=black"
       setw -g clock-mode-colour blue
     '';
   };

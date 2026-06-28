@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "base16-nvim": {
+      "rev": "21233d5fd574439ae1e2f5e4bfbc574214f4ab3d",
+      "src": "https://github.com/RRethy/base16-nvim"
+    },
     "blink.cmp": {
       "rev": "26ec6f0a1a8101eb134f8b8568d6099be015fe70",
       "src": "https://github.com/saghen/blink.cmp"
@@ -24,6 +28,10 @@
       "rev": "d401c3856585473693e5ce9ec4c8e5b608b4c0fe",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "neovim": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "https://github.com/rose-pine/neovim"
+    },
     "nvim": {
       "rev": "49a926655a2f5579e9c276470fc300baaa49e524",
       "src": "https://github.com/catppuccin/nvim"
@@ -43,6 +51,10 @@
     "nvim-web-devicons": {
       "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "onedark.nvim": {
+      "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
+      "src": "https://github.com/navarasu/onedark.nvim"
     },
     "opencode.nvim": {
       "rev": "2fb641678445047d9d814e05240d1b013c4ba642",
@@ -67,6 +79,10 @@
     "transparent.nvim": {
       "rev": "e00ca1cf09caef575edf8da7e5a8b9193893b4c7",
       "src": "https://github.com/xiyaowong/transparent.nvim"
+    },
+    "vague.nvim": {
+      "rev": "49fe06ad33d8847b931ba4279197bda222374cd1",
+      "src": "https://github.com/vague-theme/vague.nvim"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",

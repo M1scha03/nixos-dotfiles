@@ -14,6 +14,7 @@
     stylua
     lua-language-server
     opencode
+    zed-editor
   ];
 
   programs.neovim = {

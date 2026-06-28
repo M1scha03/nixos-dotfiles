@@ -111,6 +111,13 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  programs.steam = {
+    enable = true;
+    # remotePlay.openFirewall = true;
+    # dedicatedServer.openFirewall = true;
+    # localNetworkGameTransfers.openFirewall = true;
+  };
+
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
     maple-mono.NF-unhinted

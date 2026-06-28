@@ -1,6 +1,9 @@
 vim.pack.add({
 	"https://github.com/folke/tokyonight.nvim",
 	"https://github.com/catppuccin/nvim",
+	"https://github.com/rose-pine/neovim",
+	"https://github.com/vague-theme/vague.nvim",
+	"https://github.com/navarasu/onedark.nvim",
 	"https://github.com/xiyaowong/transparent.nvim",
 })
 
@@ -24,9 +27,25 @@ require("catppuccin").setup({
 	},
 })
 
-vim.cmd.colorscheme("tokyonight")
+require("vague").setup({
+	transparent = true,
+})
 
-local auto_theme_custom = require("lualine.themes.auto")
+require("onedark").setup({
+	transparent = true,
+})
+
+require("rose-pine").setup({
+	styles = {
+		bold = true,
+		italic = false,
+		transparency = true,
+	},
+})
+
+vim.cmd.colorscheme("catppuccin")
+
+local auto_theme_custom = require("lualine.themes.nord")
 
 for _, mode in pairs(auto_theme_custom) do
 	for section_name, section in pairs(mode) do
