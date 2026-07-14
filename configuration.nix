@@ -39,12 +39,19 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  programs.zsh.enable = true;
-
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/mischa/nixos-dotfiles/"; # sets NH_OS_FLAKE variable for you
+  };
+
+  programs.zsh.enable = true;
 
   programs.niri.enable = true;
 
@@ -104,8 +111,8 @@
     brave
     obsidian
     discord
-    vesktop
     moonlight-qt
+    vesktop
     # Desktop
     xwayland-satellite
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -120,6 +127,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
     maple-mono.NF-unhinted
   ];
 

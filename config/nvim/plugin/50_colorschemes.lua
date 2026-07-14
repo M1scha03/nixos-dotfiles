@@ -4,6 +4,7 @@ vim.pack.add({
 	"https://github.com/rose-pine/neovim",
 	"https://github.com/vague-theme/vague.nvim",
 	"https://github.com/navarasu/onedark.nvim",
+	"https://github.com/alexvzyl/nordic.nvim",
 	"https://github.com/xiyaowong/transparent.nvim",
 })
 
@@ -40,6 +41,13 @@ require("rose-pine").setup({
 		bold = true,
 		italic = false,
 		transparency = true,
+	},
+})
+
+require("nordic").setup({
+	transparent = {
+		bg = true,
+		float = true,
 	},
 })
 

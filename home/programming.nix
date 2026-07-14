@@ -2,17 +2,28 @@
 
 {
   home.packages = with pkgs; [
+    # Github CLI
     gh
+    # Rust packages
     cargo
     rustc
     rust-analyzer
     rustfmt
     clippy
+    # C packages
     gcc
+    # Nix packages
     nil
     nixfmt
+    # Lua packages
     stylua
     lua-language-server
+    # Javascript/Typescript packages
+    nodejs
+    typescript
+    tsx
+    typescript-language-server
+    # other
     opencode
     zed-editor
   ];

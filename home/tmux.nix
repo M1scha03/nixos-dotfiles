@@ -81,7 +81,7 @@
       set -sg escape-time 10
 
       # Status bar
-      set -g status-position bottom
+      set -g status-position top
       set -g status-interval 5
       set -g status-left-length 30
       set -g status-right-length 50
@@ -90,7 +90,7 @@
       set -gw automatic-rename-format '#{b:pane_current_path}'
 
       # Pane
-      set -g pane-border-status bottom
+      set -g pane-border-status top
       set -g pane-border-format ""
 
       # Theme

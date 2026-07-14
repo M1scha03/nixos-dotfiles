@@ -185,10 +185,6 @@ vim.keymap.set("n", "<leader>sM", function()
 	Snacks.picker.man()
 end, { desc = "Man Pages" })
 
-vim.keymap.set("n", "<leader>sp", function()
-	Snacks.picker.lazy()
-end, { desc = "Search for Plugin Spec" })
-
 vim.keymap.set("n", "<leader>sq", function()
 	Snacks.picker.qflist()
 end, { desc = "Quickfix List" })

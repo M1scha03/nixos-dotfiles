@@ -23,7 +23,7 @@ input {
 }
 
 output "eDP-1" {
-    mode "1920x1080@60.002"
+    mode "1920x1200@60.002"
     scale 1.25
     transform "normal"
     position x=2048 y=0
@@ -123,16 +123,31 @@ window-rule {
   }
 }
 
+blur {
+    passes 3        // Stronger blur with fewer passes
+    offset 3.0      // Sample distance per pass
+    noise 0.05      // Grain overlay to prevent banding
+    saturation 1.0  // Normal color saturation
+}
+
 layer-rule {
   match namespace="^noctalia-backdrop"
   place-within-backdrop true
 }
 
+// layer-rule {
+//   match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+//   background-effect {
+//     xray false
+//     blur false
+//   }
+// }
+
 layer-rule {
-  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  match namespace="^noctalia-desktop-widget*"
   background-effect {
     xray false
-    blur true
+    blur false
   }
 }
 
@@ -175,6 +190,8 @@ binds {
     Mod+Tab repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+
+    Mod+T { toggle-column-tabbed-display; }
 
     Mod+A     { focus-column-left; }
     Mod+S     { focus-window-down; }
