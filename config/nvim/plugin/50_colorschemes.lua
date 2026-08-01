@@ -1,11 +1,6 @@
 vim.pack.add({
 	"https://github.com/folke/tokyonight.nvim",
 	"https://github.com/catppuccin/nvim",
-	"https://github.com/rose-pine/neovim",
-	"https://github.com/vague-theme/vague.nvim",
-	"https://github.com/navarasu/onedark.nvim",
-	"https://github.com/alexvzyl/nordic.nvim",
-	"https://github.com/xiyaowong/transparent.nvim",
 })
 
 require("tokyonight").setup({
@@ -25,29 +20,6 @@ require("catppuccin").setup({
 	float = {
 		transparent = true,
 		solid = true,
-	},
-})
-
-require("vague").setup({
-	transparent = true,
-})
-
-require("onedark").setup({
-	transparent = true,
-})
-
-require("rose-pine").setup({
-	styles = {
-		bold = true,
-		italic = false,
-		transparency = true,
-	},
-})
-
-require("nordic").setup({
-	transparent = {
-		bg = true,
-		float = true,
 	},
 })
 
@@ -79,48 +51,3 @@ require("lualine").setup({
 		lualine_z = { "location" },
 	},
 })
-
-require("transparent").setup({
-	-- table: default groups
-	groups = {
-		"Normal",
-		"NormalNC",
-		"Comment",
-		"Constant",
-		"Special",
-		"Identifier",
-		"Statement",
-		"PreProc",
-		"Type",
-		"Underlined",
-		"Todo",
-		"String",
-		"Function",
-		"Conditional",
-		"Repeat",
-		"Operator",
-		"Structure",
-		"LineNr",
-		"NonText",
-		"SignColumn",
-		"CursorLine",
-		"CursorLineNr",
-		"StatusLine",
-		"StatusLineNC",
-		"EndOfBuffer",
-	},
-	-- table: additional groups that should be cleared
-	extra_groups = { "RenderMarkdownH1Bg, RenderMarkdownH2Bg", "RenderMarkdownH1", "RenderMarkdownH2" },
-	-- table: groups you don't want to clear
-	exclude_groups = {},
-	-- function: code to be executed after highlight groups are cleared
-	-- Also the user event "TransparentClear" will be triggered
-	on_clear = function() end,
-})
-
-vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "@markup.heading.3.markdown", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "@markup.heading.4.markdown", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "@markup.heading.5.markdown", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "@markup.heading.6.markdown", { bg = "NONE" })

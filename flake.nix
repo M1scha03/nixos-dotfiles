@@ -28,7 +28,7 @@
           inherit inputs;
         };
         modules = [
-          ./configuration.nix
+          ./hosts/laptop/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager = {

@@ -14,20 +14,17 @@ in
     ./shell.nix
     ./programming.nix
     ./tmux.nix
+    ./git.nix
   ];
 
   home.username = "mischa";
   home.homeDirectory = "/home/mischa";
   home.stateVersion = "26.05";
 
-  programs.git = {
+  gtk = {
     enable = true;
-    settings = {
-      user = {
-        user = "M1scha03";
-        email = "295005705+M1scha03@users.noreply.github.com";
-      };
-      init.defaultBranch = "main";
+    iconTheme = {
+      name = "Papirus-Dark";
     };
   };
 

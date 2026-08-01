@@ -24,6 +24,7 @@
     tsx
     typescript-language-server
     # other
+
     opencode
     zed-editor
   ];
@@ -42,5 +43,9 @@
         p.rust
       ]))
     ];
+  };
+
+  programs.vscodium = {
+    enable = true;
   };
 }
