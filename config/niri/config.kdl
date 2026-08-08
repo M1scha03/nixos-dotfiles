@@ -69,7 +69,7 @@ layout {
 
     focus-ring {
 	on
-        width 0
+        width 1.5
         active-color "#7fc8ff"
         inactive-color "#505050"
     }
@@ -122,9 +122,9 @@ window-rule {
 }
 
 blur {
-    passes 3        // Stronger blur with fewer passes
-    offset 6.0      // Sample distance per pass
-    saturation 1.0  // Normal color saturation
+    passes 4        // Stronger blur with fewer passes
+    offset 3.0      // Sample distance per pass
+    saturation 1.5  // Normal color saturation
 }
 
 layer-rule {
@@ -148,9 +148,27 @@ layer-rule {
   }
 }
 
+layer-rule {
+  match namespace="^noctalia-bar"
+  background-effect {
+    xray false
+    blur true
+  }
+}
+
 window-rule {
     match app-id=r"org.kde.dolphin"
     opacity 0.95
+}
+
+window-rule {
+    match app-id=r"dev.zed.Zed"
+    opacity 0.9
+}
+
+window-rule {
+    match app-id=r"codium"
+    opacity 0.9
 }
 
 // window-rule {
@@ -160,7 +178,7 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 

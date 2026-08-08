@@ -1,6 +1,7 @@
 vim.pack.add({
 	"https://github.com/folke/tokyonight.nvim",
 	"https://github.com/catppuccin/nvim",
+	"https://github.com/rebelot/kanagawa.nvim",
 })
 
 require("tokyonight").setup({
@@ -23,7 +24,20 @@ require("catppuccin").setup({
 	},
 })
 
-vim.cmd.colorscheme("catppuccin")
+require("kanagawa").setup({
+	transparent = true,
+	colors = {
+		theme = {
+			all = {
+				ui = {
+					bg_gutter = "none",
+				},
+			},
+		},
+	},
+})
+
+vim.cmd.colorscheme("catppuccin-mocha")
 
 local auto_theme_custom = require("lualine.themes.nord")
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = with pkgs; [
@@ -24,7 +24,7 @@
     tsx
     typescript-language-server
     # other
-
+    pkgs-unstable.herdr
     opencode
     zed-editor
   ];

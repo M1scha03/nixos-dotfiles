@@ -6,6 +6,7 @@ let
     niri = "niri";
     nvim = "nvim";
     kitty = "kitty";
+    noctalia = "noctalia";
   };
 in
 
@@ -20,6 +21,7 @@ in
   home.username = "mischa";
   home.homeDirectory = "/home/mischa";
   home.stateVersion = "26.05";
+  # home.file.".gtkrc-2.0".force = true;
 
   gtk = {
     enable = true;

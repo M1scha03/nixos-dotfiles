@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }:
@@ -31,6 +32,7 @@
     # Desktop
     xwayland-satellite
     papirus-icon-theme
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs-unstable.noctalia
   ];
 }

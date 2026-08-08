@@ -1,0 +1,335 @@
+[backdrop]
+enabled = true
+
+[bar]
+order = [ "normal" ]
+
+    [bar.normal]
+    background_opacity = 0.59999998658895493
+    capsule_thickness = 0.89999998360872269
+    center = [ "taskbar" ]
+    concave_edge_corners = false
+    end = [
+        "group:g1",
+        "notifications",
+        "line",
+        "battery",
+        "network",
+        "bluetooth",
+        "volume",
+        "brightness",
+        "weather",
+        "line",
+        "clock"
+    ]
+    font_family = "Maple Mono NF"
+    margin_ends = 0
+    padding = 8
+    panel_overlap = 0
+    position = "bottom"
+    radius = 0
+    radius_bottom_left = 0
+    radius_bottom_right = 0
+    scale = 0.85000000521540642
+    start = [ "control-center", "line", "temp", "cpu", "bar", "line", "media" ]
+    widget_spacing = 8
+
+        [[bar.normal.capsule_group]]
+        accordion = true
+        accordion_direction = "start"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "tray", "notes_2", "clipboard", "wallpaper" ]
+        opacity = 0.0
+        padding = 6.0
+
+[battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
+warning_threshold = 20
+
+[control_center.calendar]
+show_events_card = false
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 160.0
+    box_width = 304.0
+    cx = 1024.0
+    cy = 112.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        color = "on_surface_variant"
+        font_family = "TeX Gyre Schola"
+        format = "{:%A}"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 48.0
+    box_width = 224.0
+    cx = 1024.0
+    cy = 176.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
+        font_family = "TeX Gyre Schola"
+        format = "{:%d %b %y}"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 96.0
+    box_width = 288.0
+    cx = 1024.0
+    cy = 248.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background = false
+        font_family = "TeX Gyre Schola"
+        format = "{:%H:%M:%S}"
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 1280.0
+    cy = 1321.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 768.0
+    cy = 841.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_login_button = true
+
+[osd.kinds]
+media = false
+
+[plugins]
+enabled = [ "noctalia/notes", "noctalia/timer" ]
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/official-plugins"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    location = "https://github.com/noctalia-dev/community-plugins"
+    name = "community"
+
+[shell]
+app_icon_color = "primary"
+font_family = "JetBrainsMono NF"
+
+    [shell.panel]
+    launcher_placement = "attached"
+    wallpaper_placement = "centered"
+
+    [shell.screenshot]
+    directory = "/home/mischa/Pictures/Screenshots"
+
+[theme]
+builtin = "Rosé Pine"
+community_palette = "Kanagawa Dragon"
+custom_palette = "OccultUmbraNew"
+mode = "dark"
+source = "community"
+wallpaper_scheme = "faithful"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "kcolorscheme", "kitty", "niri", "sway" ]
+    community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
+
+[wallpaper.default]
+path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+
+[wallpaper.last]
+path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+
+[wallpaper.monitors.DP-1]
+path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+
+[[wallpaper.favorite]]
+community_palette = "Vesper"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/绿色房子.jpg"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+community_palette = "Peche"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/wp10165115.png"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+custom_palette = "OccultUmbraNew"
+palette_source = "custom"
+path = "/home/mischa/Pictures/Wallpapers/wallhaven-x6dv9l.png"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+custom_palette = "TokyoDark"
+palette_source = "custom"
+path = "/home/mischa/Pictures/Wallpapers/0935.jpg"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+custom_palette = "OccultUmbraNew"
+palette_source = "custom"
+path = "/home/mischa/Pictures/Wallpapers/bg1.png"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+community_palette = "Everforest Material"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/road-3.jpg"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+community_palette = "Kanagawa Dragon"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/1608191897801.jpg"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+palette_source = "wallpaper"
+path = "/home/mischa/Pictures/Wallpapers/wp6597986-painter-of-the-night-desktop-wallpapers.jpg"
+theme_mode = "dark"
+wallpaper_scheme = "m3-tonal-spot"
+
+[[wallpaper.favorite]]
+community_palette = "Vesper"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/123.jpg"
+theme_mode = "dark"
+
+[[wallpaper.favorite]]
+palette_source = "wallpaper"
+path = "/home/mischa/Pictures/Wallpapers/moonrise-rolling-3840x2160-25877.jpg"
+theme_mode = "dark"
+wallpaper_scheme = "m3-tonal-spot"
+
+[[wallpaper.favorite]]
+community_palette = "Hexa34C"
+palette_source = "community"
+path = "/home/mischa/Pictures/Wallpapers/Bulbasaur.jpg"
+theme_mode = "dark"
+
+[widget.bar]
+type = "noctalia/timer:bar"
+
+[widget.battery]
+hide_when_plugged = true
+
+[widget.clock]
+capsule_fill = "surface"
+format = " {:%d.%m -  %H:%M}"
+
+[widget.control-center]
+custom_image = "/home/mischa/Pictures/NixOS.png"
+custom_image_colorize = true
+glyph = "snowflake"
+
+[widget.cpu]
+display = "text"
+
+[widget.date]
+anchor = true
+scale = 1.05
+
+[widget.line]
+glyph = "minus-vertical"
+interactive = false
+type = "custom_button"
+
+[widget.network]
+show_label = false
+
+[widget.notes]
+type = "noctalia/notes:notes"
+
+[widget.notes_2]
+type = "noctalia/notes:notes"
+
+[widget.taskbar]
+capsule_radius = 3
+group_by_workspace = true
+hide_empty_workspaces = true
+inactive_opacity = 0.80000000000000004
+minimal = true
+scale = 1.6000000000000001
+show_active_indicator = false
+show_window_title = true
+workspace_label_placement = "inside"
+
+[widget.temp]
+display = "text"
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false
+
+[widget.weather]
+show_condition = false
+
+[widget.workspaces]
+active_pill_size = 1.1499999999999999
+capsule_radius = 3
+empty_color = "surface"
+focused_color = "#38383A"
+inactive_pill_size = 1.1499999999999999
+occupied_color = "surface"
+scale = 1.3500000000000001
