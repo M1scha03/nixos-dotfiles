@@ -1,1 +1,1 @@
-https://github.com/M1scha03/nixos-dotfiles/blob/main/assets/showcase/desktop.png
+![Desktop showcase](assets/showcases/desktop.png)
