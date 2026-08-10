@@ -55,7 +55,7 @@ environment {
 }
 
 layout {
-    gaps 6
+    gaps 5
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -158,17 +158,22 @@ layer-rule {
 
 window-rule {
     match app-id=r"org.kde.dolphin"
-    opacity 0.95
+    opacity 0.8
 }
 
 window-rule {
     match app-id=r"dev.zed.Zed"
+    opacity 0.8
+}
+
+window-rule {
+    match app-id=r"dev.noctalia.Noctalia"
     opacity 0.9
 }
 
 window-rule {
     match app-id=r"codium"
-    opacity 0.9
+    opacity 0.8
 }
 
 // window-rule {
