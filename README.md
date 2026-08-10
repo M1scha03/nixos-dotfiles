@@ -1,1 +1,1 @@
-![Desktop showcase](assets/showcases/desktop.png)
+![Desktop showcase](assets/showcase/desktop.png)
