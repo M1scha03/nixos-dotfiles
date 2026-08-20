@@ -4,9 +4,14 @@
   ...
 }:
 {
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   programs.niri.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   xdg.portal = {
     enable = true;
@@ -28,6 +33,7 @@
     ghostty
     brave
     obsidian
+    bibata-cursors
     # Desktop
     xwayland-satellite
     papirus-icon-theme

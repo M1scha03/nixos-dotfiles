@@ -54,8 +54,13 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 20
+}
+
 layout {
-    gaps 5
+    gaps 8
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
@@ -122,7 +127,7 @@ window-rule {
 }
 
 blur {
-    passes 4        // Stronger blur with fewer passes
+    passes 4     // Stronger blur with fewer passes
     offset 3.0      // Sample distance per pass
     saturation 1.5  // Normal color saturation
 }
@@ -137,6 +142,14 @@ layer-rule {
 //   background-effect {
 //     xray false
 //     blur false
+//   }
+// }
+
+// layer-rule {
+//   match namespace="^noctalia-dock"
+//   background-effect {
+//     xray false
+//     blur true
 //   }
 // }
 
@@ -157,18 +170,8 @@ layer-rule {
 }
 
 window-rule {
-    match app-id=r"org.kde.dolphin"
-    opacity 0.8
-}
-
-window-rule {
     match app-id=r"dev.zed.Zed"
     opacity 0.8
-}
-
-window-rule {
-    match app-id=r"dev.noctalia.Noctalia"
-    opacity 0.9
 }
 
 window-rule {
@@ -183,8 +186,15 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 12
     clip-to-geometry true
+}
+
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }
 
 binds {

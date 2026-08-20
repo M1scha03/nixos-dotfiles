@@ -12,6 +12,7 @@
     bat
     yazi
     fastfetch
+    jq
   ];
 
   programs.zsh = {
@@ -23,6 +24,7 @@
 
     shellAliases = {
       btw = "nixos btw";
+      rmpc = "rmpc update && rmpc";
       nixrebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
       ls = "eza -lh --group-directories-first --icons=auto";
       lsa = "ls -a";

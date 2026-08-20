@@ -6,32 +6,33 @@ order = [ "normal" ]
 
     [bar.normal]
     background_opacity = 0.59999998658895493
-    capsule_thickness = 0.89999998360872269
-    center = [ "taskbar" ]
+    capsule_thickness = 0.75999998673796654
+    center = [ "clock", "line", "date", "line", "weather" ]
     concave_edge_corners = false
     end = [
         "group:g1",
-        "notifications",
+        "line",
+        "privacy",
         "line",
         "battery",
         "network",
         "bluetooth",
         "volume",
         "brightness",
-        "weather",
-        "line",
-        "clock"
+        "group:g2",
+        "notifications"
     ]
-    font_family = "Maple Mono NF"
+    font_weight = 700
     margin_ends = 0
-    padding = 8
+    padding = 16
     panel_overlap = 0
-    position = "bottom"
+    position = "top"
     radius = 0
     radius_bottom_left = 0
     radius_bottom_right = 0
     scale = 0.85000000521540642
-    start = [ "control-center", "line", "temp", "cpu", "bar", "line", "media" ]
+    start = [ "control-center", "taskbar", "line", "media" ]
+    thickness = 30
     widget_spacing = 8
 
         [[bar.normal.capsule_group]]
@@ -44,15 +45,22 @@ order = [ "normal" ]
         opacity = 0.0
         padding = 6.0
 
+        [[bar.normal.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "headphonesymbol", "headphone_battery" ]
+        opacity = 0.0
+        padding = 6.0
+
 [battery.device."/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"]
 warning_threshold = 20
 
-[control_center.calendar]
-show_events_card = false
-
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
 
     [desktop_widgets.grid]
     cell_size = 16
@@ -62,8 +70,8 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000001]
     box_height = 160.0
     box_width = 304.0
-    cx = 1024.0
-    cy = 112.0
+    cx = 1840.0
+    cy = 120.0
     output = "DP-1"
     rotation = 0.0
     type = "clock"
@@ -71,14 +79,14 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
         background = false
         color = "on_surface_variant"
-        font_family = "TeX Gyre Schola"
+        font_family = "TeX Gyre Termes"
         format = "{:%A}"
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 48.0
     box_width = 224.0
-    cx = 1024.0
-    cy = 176.0
+    cx = 1840.0
+    cy = 184.0
     output = "DP-1"
     rotation = 0.0
     type = "clock"
@@ -86,21 +94,34 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
         background = false
         font_family = "TeX Gyre Schola"
-        format = "{:%d %b %y}"
+        format = "{:%d %b | %H:%M}"
 
-    [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 96.0
-    box_width = 288.0
-    cx = 1024.0
-    cy = 248.0
-    output = "DP-1"
-    rotation = 0.0
-    type = "clock"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        background = false
-        font_family = "TeX Gyre Schola"
-        format = "{:%H:%M:%S}"
+[dock]
+background_opacity = 0.39999999105930328
+border_width = 1.0
+cross_axis_padding = 0
+enabled = true
+icon_size = 36
+item_spacing = 4
+launcher_position = "start"
+layer = "overlay"
+main_axis_padding = 8
+margin_edge = 12
+pinned = [
+    "brave-browser",
+    "kitty",
+    "org.gnome.Nautilus",
+    "org.gnome.Calculator",
+    "org.gnome.Papers",
+    "obsidian",
+    "com.moonlight_stream.Moonlight",
+    "steam",
+    "vesktop"
+]
+reserve_space = false
+show_dots = true
+show_instance_count = false
+smart_auto_hide = true
 
 [location]
 auto_locate = true
@@ -167,60 +188,104 @@ enabled = [ "noctalia/notes", "noctalia/timer" ]
 
 [shell]
 app_icon_color = "primary"
+avatar_path = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
 font_family = "JetBrainsMono NF"
+polkit_agent = true
+
+    [shell.launcher]
+    categories = false
 
     [shell.panel]
-    launcher_placement = "attached"
     wallpaper_placement = "centered"
 
     [shell.screenshot]
     directory = "/home/mischa/Pictures/Screenshots"
 
 [theme]
-builtin = "Rosé Pine"
+builtin = "Tokyo-Night"
 community_palette = "Kanagawa Dragon"
 custom_palette = "OccultUmbraNew"
 mode = "dark"
-source = "community"
-wallpaper_scheme = "faithful"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "kcolorscheme", "kitty", "niri", "sway" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "sway" ]
     community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
 
-[wallpaper.default]
-path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+[wallpaper]
+directory = "/home/mischa/nixos-dotfiles/assets/Wallpapers"
 
-[wallpaper.last]
-path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+    [wallpaper.default]
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
 
-[wallpaper.monitors.DP-1]
-path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+    [wallpaper.last]
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
 
-[wallpaper.monitors.eDP-1]
-path = "/home/mischa/Pictures/Wallpapers/wallhaven-jx9kxp.jpg"
+    [wallpaper.monitors.DP-1]
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
 
-[widget.bar]
-type = "noctalia/timer:bar"
+    [wallpaper.monitors.eDP-1]
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+
+    [[wallpaper.favorite]]
+    community_palette = "Kanagawa Dragon"
+    palette_source = "community"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1-larvik-by-moonlight.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Kanagawa Dragon"
+    palette_source = "community"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-jx9kxp.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    custom_palette = "lofi-cat-ts"
+    palette_source = "custom"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/moonrise-rolling-3840x2160-25877.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Kanagawa Dragon"
+    palette_source = "community"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/pexels-sheep-556180-1846422.jpg"
+    theme_mode = "dark"
+
+    [[wallpaper.favorite]]
+    community_palette = "Kanagawa Dragon"
+    palette_source = "community"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1608191897801.jpg"
+    theme_mode = "dark"
 
 [widget.battery]
 hide_when_plugged = true
 
+[widget.brightness]
+show_label = false
+
 [widget.clock]
 capsule_fill = "surface"
-format = " {:%d.%m -  %H:%M}"
+format = "{:%H:%M}"
 
 [widget.control-center]
-custom_image = "/home/mischa/Pictures/NixOS.png"
+custom_image = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
 custom_image_colorize = true
 glyph = "snowflake"
 
-[widget.cpu]
-display = "text"
-
 [widget.date]
-anchor = true
-scale = 1.05
+format = "{:%a, %d.%m}"
+scale = 1.0
+
+[widget.headphone_battery]
+device = "/org/freedesktop/UPower/devices/headset_dev_80_99_E7_8E_80_47"
+display_mode = "none"
+type = "battery"
+
+[widget.headphonesymbol]
+glyph = "bluetooth-device-headphones"
+interactive = false
+type = "custom_button"
 
 [widget.line]
 glyph = "minus-vertical"
@@ -236,19 +301,19 @@ type = "noctalia/notes:notes"
 [widget.notes_2]
 type = "noctalia/notes:notes"
 
+[widget.privacy]
+active_color = "tertiary"
+inactive_color = "on_surface"
+
 [widget.taskbar]
 capsule_radius = 3
 group_by_workspace = true
-hide_empty_workspaces = true
 inactive_opacity = 0.80000000000000004
 minimal = true
-scale = 1.6000000000000001
+scale = 1.5
 show_active_indicator = false
-show_window_title = true
+show_window_title = false
 workspace_label_placement = "inside"
-
-[widget.temp]
-display = "text"
 
 [widget.tray]
 drawer = true
@@ -262,8 +327,4 @@ show_condition = false
 [widget.workspaces]
 active_pill_size = 1.1499999999999999
 capsule_radius = 3
-empty_color = "surface"
-focused_color = "#38383A"
 inactive_pill_size = 1.1499999999999999
-occupied_color = "surface"
-scale = 1.3500000000000001

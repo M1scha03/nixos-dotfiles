@@ -6,7 +6,7 @@
     ./locale.nix
     ./fonts.nix
     ./services.nix
-    ./sddm.nix
+    ./noctalia-greeter.nix
     ./nix.nix
   ];
 }
