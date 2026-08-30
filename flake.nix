@@ -1,14 +1,23 @@
 {
   description = "NixOS Test";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    umbriel = {
+      url = "git+https://github.com/noctalia-dev/umbriel";
+    };
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -22,17 +31,13 @@
     }@inputs:
     let
       system = "x86_64-linux";
-
-      pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit system;
-      };
     in
     {
       nixosConfigurations.nixos-btw = nixpkgs.lib.nixosSystem {
         inherit system;
 
         specialArgs = {
-          inherit inputs pkgs-unstable;
+          inherit inputs;
         };
         modules = [
           ./hosts/laptop/configuration.nix
@@ -41,9 +46,9 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.mischa = import ./home/default.nix;
+              users.mischa = import ./modules/home/default.nix;
               extraSpecialArgs = {
-                inherit inputs pkgs-unstable;
+                inherit inputs;
               };
               backupFileExtension = "backup";
               overwriteBackup = true;

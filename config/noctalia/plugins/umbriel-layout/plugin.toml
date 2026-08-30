@@ -1,0 +1,18 @@
+id          = "local/umbriel-layout"
+name        = "Umbriel Layout"
+version     = "0.3.0"
+plugin_api  = 3
+author      = "local"
+description = "Shows the focused Umbriel workspace layout and provides a small layout picker."
+
+[[widget]]
+id    = "layout"
+entry = "widget.luau"
+
+[[panel]]
+id              = "picker"
+entry           = "picker.luau"
+width           = 300
+height          = 150
+placement       = "attached"
+open_near_click = true

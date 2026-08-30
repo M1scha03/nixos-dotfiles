@@ -12,7 +12,8 @@ order = [ "normal" ]
     end = [
         "group:g1",
         "line",
-        "privacy",
+        "cpu",
+        "ram",
         "line",
         "battery",
         "network",
@@ -20,18 +21,20 @@ order = [ "normal" ]
         "volume",
         "brightness",
         "group:g2",
+        "line",
         "notifications"
     ]
-    font_weight = 700
+    font_family = "Google Sans Code"
+    font_weight = 500
     margin_ends = 0
     padding = 16
-    panel_overlap = 0
+    panel_overlap = 2
     position = "top"
     radius = 0
     radius_bottom_left = 0
     radius_bottom_right = 0
     scale = 0.85000000521540642
-    start = [ "control-center", "taskbar", "line", "media" ]
+    start = [ "control-center", "taskbar", "line", "layout", "line", "privacy" ]
     thickness = 30
     widget_spacing = 8
 
@@ -41,7 +44,7 @@ order = [ "normal" ]
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "tray", "notes_2", "clipboard", "wallpaper" ]
+        members = [ "tray", "notes_2", "clipboard", "wallpaper", "screenshot" ]
         opacity = 0.0
         padding = 6.0
 
@@ -60,7 +63,7 @@ warning_threshold = 20
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
+widget_order = []
 
     [desktop_widgets.grid]
     cell_size = 16
@@ -97,7 +100,7 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         format = "{:%d %b | %H:%M}"
 
 [dock]
-background_opacity = 0.39999999105930328
+background_opacity = 0.59999998658895493
 border_width = 1.0
 cross_axis_padding = 0
 enabled = true
@@ -108,10 +111,13 @@ layer = "overlay"
 main_axis_padding = 8
 margin_edge = 12
 pinned = [
-    "brave-browser",
-    "kitty",
+    "zen-beta",
+    "com.mitchellh.ghostty",
+    "dev.zed.Zed",
     "org.gnome.Nautilus",
     "org.gnome.Calculator",
+    "org.gnome.SystemMonitor",
+    "bitwarden",
     "org.gnome.Papers",
     "obsidian",
     "com.moonlight_stream.Moonlight",
@@ -127,9 +133,9 @@ smart_auto_hide = true
 auto_locate = true
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -137,11 +143,13 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 196.0
+    box_width = 720.0
     cx = 1280.0
-    cy = 1321.0
+    cy = 1152.0
     output = "DP-1"
+    placement_height = 1152.0
+    placement_width = 2048.0
     rotation = 0.0
     type = "login_box"
 
@@ -149,16 +157,53 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@WL-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 632.0
+    cy = 1208.0
+    output = "WL-1"
+    placement_height = 0.0
+    placement_width = 0.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 400.0
+    box_height = 196.0
+    box_width = 720.0
     cx = 768.0
     cy = 841.0
     output = "eDP-1"
+    placement_height = 960.0
+    placement_width = 1536.0
     rotation = 0.0
     type = "login_box"
 
@@ -166,15 +211,30 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
         background_color = "surface_variant"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
 [osd.kinds]
 media = false
 
+[plugin_settings."local/umbriel-layout"]
+picker_open_near_click = false
+
+[plugin_settings."noctalia/notes"]
+notes_dir = "/home/mischa/Documents/ObsidianVault"
+
 [plugins]
-enabled = [ "noctalia/notes", "noctalia/timer" ]
+auto_update = "all"
+enabled = [ "noctalia/notes", "noctalia/timer", "noctalia/example", "local/umbriel-layout" ]
 
     [[plugins.source]]
     kind = "git"
@@ -186,6 +246,11 @@ enabled = [ "noctalia/notes", "noctalia/timer" ]
     location = "https://github.com/noctalia-dev/community-plugins"
     name = "community"
 
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/mischa/nixos-dotfiles/config/noctalia/plugins"
+    name = "my-plugins"
+
 [shell]
 app_icon_color = "primary"
 avatar_path = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
@@ -196,66 +261,61 @@ polkit_agent = true
     categories = false
 
     [shell.panel]
+    transparency_mode = "soft"
     wallpaper_placement = "centered"
 
     [shell.screenshot]
     directory = "/home/mischa/Pictures/Screenshots"
 
 [theme]
-builtin = "Tokyo-Night"
-community_palette = "Kanagawa Dragon"
-custom_palette = "OccultUmbraNew"
+builtin = "Catppuccin"
+community_palette = "Peche"
+custom_palette = "lofi-cat-ts"
 mode = "dark"
-source = "wallpaper"
+source = "community"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "sway" ]
-    community_ids = [ "vscode", "discord", "opencode", "papirus-icons" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "niri", "umbriel" ]
+    community_ids = [ "opencode", "discord", "vscode" ]
 
 [wallpaper]
 directory = "/home/mischa/nixos-dotfiles/assets/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/5825746.jpg"
 
     [wallpaper.last]
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/5825746.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/5825746.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-po71ke.jpg"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/5825746.jpg"
 
     [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1-larvik-by-moonlight.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
+    palette_source = "wallpaper"
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/wallhaven-jx9kxp.jpg"
     theme_mode = "dark"
+    wallpaper_scheme = "m3-tonal-spot"
 
     [[wallpaper.favorite]]
-    custom_palette = "lofi-cat-ts"
-    palette_source = "custom"
+    palette_source = "wallpaper"
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/moonrise-rolling-3840x2160-25877.jpg"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    community_palette = "Peche"
+    palette_source = "community"
+    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/5825746.jpg"
     theme_mode = "dark"
 
     [[wallpaper.favorite]]
     community_palette = "Kanagawa Dragon"
     palette_source = "community"
     path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/pexels-sheep-556180-1846422.jpg"
-    theme_mode = "dark"
-
-    [[wallpaper.favorite]]
-    community_palette = "Kanagawa Dragon"
-    palette_source = "community"
-    path = "/home/mischa/nixos-dotfiles/assets/Wallpapers/1608191897801.jpg"
     theme_mode = "dark"
 
 [widget.battery]
@@ -273,6 +333,9 @@ custom_image = "/home/mischa/nixos-dotfiles/assets/images/NixOS.png"
 custom_image_colorize = true
 glyph = "snowflake"
 
+[widget.cpu]
+visualization = "none"
+
 [widget.date]
 format = "{:%a, %d.%m}"
 scale = 1.0
@@ -286,6 +349,9 @@ type = "battery"
 glyph = "bluetooth-device-headphones"
 interactive = false
 type = "custom_button"
+
+[widget.layout]
+type = "local/umbriel-layout:layout"
 
 [widget.line]
 glyph = "minus-vertical"
@@ -305,12 +371,17 @@ type = "noctalia/notes:notes"
 active_color = "tertiary"
 inactive_color = "on_surface"
 
+[widget.ram]
+visualization = "none"
+
 [widget.taskbar]
-capsule_radius = 3
+capsule_radius = 8
 group_by_workspace = true
+hide_empty_workspaces = true
+icon_scale = 1.5000000000000002
 inactive_opacity = 0.80000000000000004
 minimal = true
-scale = 1.5
+scale = 1.0
 show_active_indicator = false
 show_window_title = false
 workspace_label_placement = "inside"
@@ -328,3 +399,5 @@ show_condition = false
 active_pill_size = 1.1499999999999999
 capsule_radius = 3
 inactive_pill_size = 1.1499999999999999
+scale = 1.5
+style = "focus_hint"

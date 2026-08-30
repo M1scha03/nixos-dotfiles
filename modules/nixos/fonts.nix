@@ -7,5 +7,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
     maple-mono.NF-unhinted
+    googlesans-code
   ];
 }

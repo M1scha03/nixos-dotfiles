@@ -1,17 +1,18 @@
 {
   pkgs,
-  pkgs-unstable,
+  inputs,
   ...
 }:
 {
+
+  imports = [ inputs.umbriel.nixosModules.default ];
+  programs.umbriel = {
+    enable = true;
+  };
+
   services.desktopManager.gnome.enable = true;
 
-  programs.niri.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
+  # programs.niri.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -21,23 +22,24 @@
     ];
 
     config = {
-      niri = {
-        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-        "org.freedesktop.impl.portal.Screenshot" = "gnome";
+      # niri = {
+      #   "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      #   "org.freedesktop.impl.portal.Screenshot" = "gnome";
+      # };
+      umbriel = {
+        "org.freedesktop.impl.portal.ScreenCast" = [ "umbriel" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "umbriel" ];
       };
     };
   };
   environment.systemPackages = with pkgs; [
     # Software
     kitty
-    ghostty
-    brave
+    bitwarden-desktop
     obsidian
     bibata-cursors
     # Desktop
     xwayland-satellite
-    papirus-icon-theme
-    # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pkgs-unstable.noctalia
+    noctalia
   ];
 }

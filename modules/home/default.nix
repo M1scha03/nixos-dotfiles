@@ -15,25 +15,30 @@ in
     ./shell.nix
     ./programming.nix
     ./tmux.nix
+    ./herdr.nix
     ./git.nix
     ./music.nix
+    ./zen.nix
+    ./ghostty
+    ./umbriel
   ];
 
   home.username = "mischa";
   home.homeDirectory = "/home/mischa";
   home.stateVersion = "26.05";
-  # home.file.".gtkrc-2.0".force = true;
 
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Papirus-Dark";
+      name = "Colloid-Catppuccin-Dark";
+      package = pkgs.colloid-icon-theme.override {
+        schemeVariants = [ "catppuccin" ];
+      };
     };
   };
 
   home.pointerCursor = {
-    gtk.enable = true;
-
+    enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 24;

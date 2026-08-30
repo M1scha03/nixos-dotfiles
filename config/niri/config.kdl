@@ -61,7 +61,8 @@ cursor {
 
 layout {
     gaps 8
-    center-focused-column "never"
+    // center-focused-column "always"
+    always-center-single-column
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
@@ -126,47 +127,27 @@ window-rule {
   }
 }
 
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    xray false
+    // blur false
+  }
+}
+
+layer-rule {
+    match namespace="noctalia-window-switcher"
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
 blur {
-    passes 4     // Stronger blur with fewer passes
-    offset 3.0      // Sample distance per pass
-    saturation 1.5  // Normal color saturation
-}
-
-layer-rule {
-  match namespace="^noctalia-backdrop"
-  place-within-backdrop true
-}
-
-// layer-rule {
-//   match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
-//   background-effect {
-//     xray false
-//     blur false
-//   }
-// }
-
-// layer-rule {
-//   match namespace="^noctalia-dock"
-//   background-effect {
-//     xray false
-//     blur true
-//   }
-// }
-
-layer-rule {
-  match namespace="^noctalia-desktop-widget*"
-  background-effect {
-    xray false
-    blur false
-  }
-}
-
-layer-rule {
-  match namespace="^noctalia-bar"
-  background-effect {
-    xray false
-    blur true
-  }
+  passes 5        // more passes = stronger blur (default: 3)
+  offset 3.0      // sample distance per pass (default: 3.0)
+  noise 0.00      // grain overlay (default: 0.02)
+  saturation 0.5  // color saturation boost (default: 1.5)
 }
 
 window-rule {
@@ -175,8 +156,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r"codium"
-    opacity 0.8
+    match app-id=r"org.gnome.Nautilus"
+    opacity 0.9
 }
 
 // window-rule {
@@ -186,7 +167,7 @@ window-rule {
 // }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 6
     clip-to-geometry true
 }
 
@@ -200,7 +181,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+G hotkey-overlay-title="Run an Application: Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+M hotkey-overlay-title="Run an Application: Launcher" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Slash hotkey-overlay-title="Run an Application: Launcher" { spawn-sh "noctalia msg settings-toggle"; }

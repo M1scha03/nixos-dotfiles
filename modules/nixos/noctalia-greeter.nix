@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -13,7 +12,7 @@
   programs.noctalia-greeter = {
     enable = true;
 
-    package = pkgs-unstable.noctalia-greeter;
+    package = pkgs.noctalia-greeter;
 
     greeter-args = "";
 

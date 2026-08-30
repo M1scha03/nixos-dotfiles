@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -13,7 +13,7 @@
     # C packages
     gcc
     # Nix packages
-    nil
+    nixd
     nixfmt
     # Lua packages
     stylua
@@ -24,7 +24,6 @@
     tsx
     typescript-language-server
     # other
-    pkgs-unstable.herdr
     opencode
     zed-editor
   ];
