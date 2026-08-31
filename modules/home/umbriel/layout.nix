@@ -3,8 +3,8 @@
 {
   programs.umbriel.settings = {
     layout = {
-      mode = "dwindle";
-      gap = 5;
+      mode = "scrolling";
+      gap = 3;
       width_presets = [
         0.333
         0.5
@@ -13,6 +13,7 @@
       scrolling = {
         default_width_fraction = 0.5;
         center_underfull_strip = true;
+        expand_single_column = true;
       };
     };
 

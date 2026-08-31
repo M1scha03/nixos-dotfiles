@@ -109,7 +109,7 @@ item_spacing = 4
 launcher_position = "start"
 layer = "overlay"
 main_axis_padding = 8
-margin_edge = 12
+margin_edge = 8
 pinned = [
     "zen-beta",
     "com.mitchellh.ghostty",

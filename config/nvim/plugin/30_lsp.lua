@@ -56,6 +56,10 @@ vim.lsp.config("lua_ls", {
 					vim.env.VIMRUNTIME,
 					vim.fn.stdpath("config"),
 				},
+				ignoreDir = {
+					"result",
+					"result-*",
+				},
 			},
 			telemetry = {
 				enable = false,

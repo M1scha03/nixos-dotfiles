@@ -11,10 +11,10 @@ vim.keymap.set("n", "<Esc>", "<CMD>nohlsearch<CR>")
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { silent = true })
 
 -- Switch Focus with Vim Keys
-vim.keymap.set("n", "<c-h>", "<c-w>h")
-vim.keymap.set("n", "<c-j>", "<c-w>j")
-vim.keymap.set("n", "<c-k>", "<c-w>k")
-vim.keymap.set("n", "<c-l>", "<c-w>l")
+-- vim.keymap.set("n", "<c-h>", "<c-w>h")
+-- vim.keymap.set("n", "<c-j>", "<c-w>j")
+-- vim.keymap.set("n", "<c-k>", "<c-w>k")
+-- vim.keymap.set("n", "<c-l>", "<c-w>l")
 
 -- Buffer Management
 vim.keymap.set("n", "H", "<Cmd>BufferPrevious<CR>")

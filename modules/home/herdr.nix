@@ -28,11 +28,32 @@ let
     ${pkgs.herdr}/bin/herdr pane zoom "$pane" --off >/dev/null 2>&1
     ${pkgs.herdr}/bin/herdr pane move "$pane" --tab "$cur_tab" --split right --focus
   '';
+
+  nvim-herdr-navigate = pkgs.writeShellScriptBin "nvim-herdr-navigate" ''
+    direction="$1"
+    key="$2"
+    pane="''${HERDR_ACTIVE_PANE_ID:-}"
+
+    [ -n "$direction" ] || { echo "no direction" >&2; exit 1; }
+    [ -n "$key" ] || { echo "no key" >&2; exit 1; }
+    if [ -z "$pane" ]; then
+      pane=$(${pkgs.herdr}/bin/herdr pane current | ${pkgs.jq}/bin/jq -r '.result.pane.pane_id // empty')
+    fi
+    [ -n "$pane" ] || { echo "no active pane" >&2; exit 1; }
+
+    if ${pkgs.herdr}/bin/herdr pane process-info --pane "$pane" \
+      | ${pkgs.jq}/bin/jq -e '.result.process_info.foreground_processes | any(.name | test("^(n?vim|view)$"))' >/dev/null; then
+      ${pkgs.herdr}/bin/herdr pane send-keys "$pane" "$key"
+    else
+      ${pkgs.herdr}/bin/herdr pane focus --pane "$pane" --direction "$direction"
+    fi
+  '';
 in
 {
   home.packages = [
     herdr-break-pane
     herdr-pull-pane
+    nvim-herdr-navigate
   ];
 
   programs.herdr = {
@@ -127,6 +148,30 @@ in
 
         # move panes between tabs
         command = [
+          {
+            key = "ctrl+h";
+            type = "shell";
+            command = "${nvim-herdr-navigate}/bin/nvim-herdr-navigate left ctrl+h";
+            description = "navigate left in nvim or herdr";
+          }
+          {
+            key = "ctrl+j";
+            type = "shell";
+            command = "${nvim-herdr-navigate}/bin/nvim-herdr-navigate down ctrl+j";
+            description = "navigate down in nvim or herdr";
+          }
+          {
+            key = "ctrl+k";
+            type = "shell";
+            command = "${nvim-herdr-navigate}/bin/nvim-herdr-navigate up ctrl+k";
+            description = "navigate up in nvim or herdr";
+          }
+          {
+            key = "ctrl+l";
+            type = "shell";
+            command = "${nvim-herdr-navigate}/bin/nvim-herdr-navigate right ctrl+l";
+            description = "navigate right in nvim or herdr";
+          }
           {
             key = "prefix+m";
             type = "shell";

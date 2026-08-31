@@ -42,6 +42,11 @@
     ];
 
     initContent = ''
+        bindkey -M viins '^?' backward-delete-char
+         bindkey -M viins '^H' backward-delete-char
+
+         bindkey -M viins '^F' clear-screen
+         bindkey -M vicmd '^F' clear-screen
       eval "$(starship init zsh)"
     '';
   };

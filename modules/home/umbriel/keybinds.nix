@@ -72,6 +72,8 @@ in
     "Mod+U" = "workspace-next";
     "Mod+Shift+I" = "window-move-to-workspace-previous";
     "Mod+Shift+U" = "window-move-to-workspace-next";
+    "Mod+WheelUp" = "workspace-previous";
+    "Mod+WheelDown" = "workspace-next";
 
     # Monitors
     "Mod+H" = "output-focus-left";
